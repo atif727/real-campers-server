@@ -3,9 +3,12 @@ import cors from "cors";
 import { productRoutes } from "./modules/prodcuts/product.routes";
 import globalErrorHandler from "./middlewares/globalErrorHandler";
 const app: Application = express();
+import cookieParser from "cookie-parser";
 
 // parser
 app.use(express.json());
+app.use(cookieParser());
+
 app.use(cors({ origin: "*", credentials: true }));
 
 app.use("/api", productRoutes);
