@@ -6,16 +6,16 @@ const app: Application = express();
 
 // parser
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "*", credentials: true }));
 
-app.use("/api", productRoutes)
+app.use("/api", productRoutes);
 
 const home = (req: Request, res: Response) => {
   res.send("hi ami bhalo chele ");
 };
 
 app.get("/", home);
-app.use(globalErrorHandler)
+app.use(globalErrorHandler);
 
 // used this because i was facing some problems with app.use(notFound route)
 app.all("*", (req, res) => {
