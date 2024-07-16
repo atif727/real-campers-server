@@ -8,5 +8,5 @@ const userSchemaModel = new mongoose_1.Schema({
     password: { type: String, required: true },
     access_token: { type: String, Optional: true },
     refresh_token: { type: String, Optional: true },
-});
+}, { versionKey: false });
 exports.userModel = (0, mongoose_1.model)("user", userSchemaModel);

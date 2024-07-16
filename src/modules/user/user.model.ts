@@ -7,6 +7,6 @@ const userSchemaModel: Schema = new Schema<xUserInterface>({
   password: { type: String, required: true },
   access_token: { type: String, Optional: true },
   refresh_token: { type: String, Optional: true },
-});
+}, {versionKey: false});
 
 export const userModel = model<xUserInterface>("user", userSchemaModel);
