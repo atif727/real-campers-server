@@ -4,6 +4,7 @@ import { productRoutes } from "./modules/prodcuts/product.routes";
 import globalErrorHandler from "./middlewares/globalErrorHandler";
 const app: Application = express();
 import cookieParser from "cookie-parser";
+import { userRoutes } from "./modules/user/user.routes";
 
 // parser
 app.use(express.json());
@@ -11,6 +12,7 @@ app.use(cookieParser());
 
 app.use(cors({ origin: "*", credentials: true }));
 
+app.use("/api", userRoutes);
 app.use("/api", productRoutes);
 
 const home = (req: Request, res: Response) => {
