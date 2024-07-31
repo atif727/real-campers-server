@@ -13,8 +13,8 @@ const howToCareSchema = zod_1.z.object({
 exports.productValidation = zod_1.z.object({
     body: zod_1.z.object({
         name: zod_1.z.string().max(10, "Name must be at most 10 characters").trim(),
-        description: zod_1.z.string().min(1, "Description is required"),
-        category: zod_1.z.string().min(1, "Category is required"),
+        description: zod_1.z.string().min(1, "Description is required").trim(),
+        category: zod_1.z.string().min(1, "Category is required").trim(),
         price: zod_1.z.number().min(0, "Price must be a positive number"),
         varients: zod_1.z
             .array(variantSchema)

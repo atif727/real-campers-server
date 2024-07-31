@@ -59,8 +59,19 @@ const getAllUsers = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, vo
         data: result,
     });
 }));
+const getUsersByEmail = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email } = req.params;
+    const result = yield user_service_1.userService.gettingUserByEmailFromDB(email);
+    (0, sendResponse_1.default)(res, {
+        success: true,
+        statusCode: http_status_1.default.OK,
+        message: `Users shown successfully`,
+        data: result,
+    });
+}));
 exports.userController = {
     createUser,
     getAllUsers,
-    login
+    login,
+    getUsersByEmail,
 };

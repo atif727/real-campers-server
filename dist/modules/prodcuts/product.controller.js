@@ -71,5 +71,5 @@ exports.productController = {
     getProductByID,
     createProduct,
     deleteProduct,
-    updateProduct
+    updateProduct,
 };

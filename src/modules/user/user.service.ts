@@ -79,8 +79,18 @@ const getAllUsersFromDB = async () => {
   }
 };
 
+const gettingUserByEmailFromDB = async (email: string) => {
+  const user = await userModel.findOne({ email: email });
+  if (!user || user === null || user === undefined) {
+    throw new AppError(httpStatus.NOT_FOUND, "This user is not found !");
+  } else {
+    return user;
+  }
+};
+
 export const userService = {
   createUserInDB,
   getAllUsersFromDB,
   loggingIn,
+  gettingUserByEmailFromDB,
 };

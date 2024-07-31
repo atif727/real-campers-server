@@ -69,8 +69,18 @@ const getAllUsersFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
         return result;
     }
 });
+const gettingUserByEmailFromDB = (email) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield user_model_1.userModel.findOne({ email: email });
+    if (!user || user === null || user === undefined) {
+        throw new AppError_1.default(http_status_1.default.NOT_FOUND, "This user is not found !");
+    }
+    else {
+        return user;
+    }
+});
 exports.userService = {
     createUserInDB,
     getAllUsersFromDB,
     loggingIn,
+    gettingUserByEmailFromDB,
 };

@@ -13,8 +13,9 @@ const user_routes_1 = require("./modules/user/user.routes");
 // parser
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
-app.use((0, cors_1.default)({ origin: "*", credentials: true }));
+app.use((0, cors_1.default)({ origin: "http://localhost:5173", credentials: true }));
 app.use("/api", user_routes_1.userRoutes);
+app.use("/api", product_routes_1.productRoutes);
 app.use("/api", product_routes_1.productRoutes);
 const home = (req, res) => {
     res.send("hi ami bhalo chele ");

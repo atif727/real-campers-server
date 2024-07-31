@@ -1,10 +1,6 @@
 import { Schema, model } from "mongoose";
-import { HowToCare, Variant, productType } from "./product.interface";
+import { HowToCare, productType } from "./product.interface";
 
-const variantSchema = new Schema<Variant>({
-  color: { type: String, required: true },
-  imageUrl: { type: String, required: true },
-}, { _id: false, versionKey: false });
 
 const howToCareSchema = new Schema<HowToCare>({
   header: { type: String, required: true },
@@ -17,7 +13,8 @@ export const productSchema = new Schema<productType>(
     description: { type: String, required: true },
     category: { type: String, required: true },
     price: { type: Number, required: true },
-    varients: { type: [variantSchema], required: true},
+    imageUrl: { type: String, required: true},
+    color: { type: String, required: true },
     quantity: { type: Number, required: true },
     howtocare: { type: howToCareSchema, required: true },
   },

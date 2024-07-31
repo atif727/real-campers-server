@@ -13,6 +13,8 @@ exports.UserSchema = zod_1.z.object({
             .string()
             .min(8, { message: "Password must be at least 8 characters long" })
             .min(1, { message: "Password is required" }),
+        address: zod_1.z.string().min(1, { message: "Name is required" }),
+        phonenumber: zod_1.z.string().min(1, { message: "Name is required" }),
     }),
 });
 exports.LoginSchema = zod_1.z.object({

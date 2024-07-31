@@ -11,6 +11,8 @@ export const UserSchema = z.object({
       .string()
       .min(8, { message: "Password must be at least 8 characters long" })
       .min(1, { message: "Password is required" }),
+    address: z.string().min(1, { message: "Name is required" }),
+    phonenumber: z.string().min(1, { message: "Name is required" }),
   }),
 });
 export const LoginSchema = z.object({

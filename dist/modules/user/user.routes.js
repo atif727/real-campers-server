@@ -10,9 +10,10 @@ const user_controller_1 = require("./user.controller");
 const user_validation_1 = require("./user.validation");
 const router = express_1.default.Router();
 // signing up for the first time
-router.post('/signup', (0, validateRequest_1.default)(user_validation_1.UserSchema), user_controller_1.userController.createUser);
 router.post('/signin', (0, validateRequest_1.default)(user_validation_1.LoginSchema), user_controller_1.userController.login);
+router.post('/signup', (0, validateRequest_1.default)(user_validation_1.UserSchema), user_controller_1.userController.createUser);
 // using this for dev work purposes
 // confidential route so made it admin only
 router.get('/users', user_controller_1.userController.getAllUsers);
+router.get('/users/:email', user_controller_1.userController.getUsersByEmail);
 exports.userRoutes = router;
