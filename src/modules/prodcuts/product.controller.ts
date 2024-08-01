@@ -15,6 +15,17 @@ const getAllProduct: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
+const createProduct: RequestHandler = catchAsync(async (req, res) => {
+  // console.log(req.body)
+  const result = await productServices.createProductInDB(req.body);
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Products shown successfully",
+    data: result,
+  });
+});
+
 const getProductByID: RequestHandler = catchAsync(async (req, res) => {
   const { id } = req.params;
   const result = await productServices.getProductsByIDInDB(id);
@@ -36,16 +47,6 @@ const deleteProduct: RequestHandler = catchAsync(async (req, res) => {
   });
 });
 
-const createProduct: RequestHandler = catchAsync(async (req, res) => {
-  // console.log(req.body)
-  const result = await productServices.createProductInDB(req.body);
-  sendResponse(res, {
-    success: true,
-    statusCode: httpStatus.OK,
-    message: "Products shown successfully",
-    data: result,
-  });
-});
 const updateProduct: RequestHandler = catchAsync(async (req, res) => {
   // console.log(req.body)
   const result = await productServices.updateProductInDB(

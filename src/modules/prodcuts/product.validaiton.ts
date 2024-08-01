@@ -21,6 +21,7 @@ export const productValidation = z.object({
       .nonempty("At least one variant is required"),
     quantity: z.number().min(0, "Quantity must be a positive number"),
     howtocare: howToCareSchema,
+    recommended: z.boolean(),
     isFeatured: z.boolean(),
     rating: z.union([
       z.literal(1),
@@ -61,6 +62,7 @@ export const productUpdateValidation = z.object({
       .min(0, "Quantity must be a positive number")
       .optional(),
     howtocare: howToCareValidationSchema.optional(),
+    recommended: z.boolean().optional(),
     isFeatured: z.boolean().optional(),
     rating: z.union([
       z.literal(1),

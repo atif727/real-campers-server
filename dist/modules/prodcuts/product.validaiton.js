@@ -21,6 +21,7 @@ exports.productValidation = zod_1.z.object({
             .nonempty("At least one variant is required"),
         quantity: zod_1.z.number().min(0, "Quantity must be a positive number"),
         howtocare: howToCareSchema,
+        recommended: zod_1.z.boolean(),
         isFeatured: zod_1.z.boolean(),
         rating: zod_1.z.union([
             zod_1.z.literal(1),
@@ -58,6 +59,7 @@ exports.productUpdateValidation = zod_1.z.object({
             .min(0, "Quantity must be a positive number")
             .optional(),
         howtocare: howToCareValidationSchema.optional(),
+        recommended: zod_1.z.boolean().optional(),
         isFeatured: zod_1.z.boolean().optional(),
         rating: zod_1.z.union([
             zod_1.z.literal(1),

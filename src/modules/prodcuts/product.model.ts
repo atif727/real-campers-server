@@ -19,6 +19,7 @@ export const productSchema = new Schema<productType>(
     color: { type: String, required: true },
     quantity: { type: Number, required: true },
     howtocare: { type: howToCareSchema, required: true },
+    recommended: { type: Boolean, required: true },
     isFeatured: { type: Boolean, required: true },
     rating: { type: Number, enum: [1, 2, 3, 4, 5], required: true },
   },

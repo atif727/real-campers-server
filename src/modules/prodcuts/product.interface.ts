@@ -12,6 +12,7 @@ export type productType = {
   imageUrl: string;
   quantity: number;
   howtocare: HowToCare;
+  recommended: boolean;
   isFeatured: boolean;
   rating: 1 | 2 | 3 | 4 | 5;
 };
