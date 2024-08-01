@@ -15,5 +15,7 @@ exports.productSchema = new mongoose_1.Schema({
     color: { type: String, required: true },
     quantity: { type: Number, required: true },
     howtocare: { type: howToCareSchema, required: true },
+    isFeatured: { type: Boolean, required: true },
+    rating: { type: Number, enum: [1, 2, 3, 4, 5], required: true },
 }, { versionKey: false });
 exports.productModel = (0, mongoose_1.model)("Product", exports.productSchema);

@@ -3,13 +3,13 @@ import { productController } from "./product.controller";
 import validateRequest from "../../middlewares/validateRequest";
 import {
   productValidation,
-  productValidationValidator,
+  productUpdateValidation,
 } from "./product.validaiton";
 
 const router = express.Router();
 router.put(
   "/products/:id",
-  validateRequest(productValidationValidator),
+  validateRequest(productUpdateValidation),
   productController.updateProduct
 );
 router.get("/products", productController.getAllProduct);

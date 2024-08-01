@@ -1,11 +1,13 @@
 import { Schema, model } from "mongoose";
 import { HowToCare, productType } from "./product.interface";
 
-
-const howToCareSchema = new Schema<HowToCare>({
-  header: { type: String, required: true },
-  description: { type: String, required: true },
-}, { _id: false, versionKey: false });
+const howToCareSchema = new Schema<HowToCare>(
+  {
+    header: { type: String, required: true },
+    description: { type: String, required: true },
+  },
+  { _id: false, versionKey: false }
+);
 
 export const productSchema = new Schema<productType>(
   {
@@ -13,10 +15,12 @@ export const productSchema = new Schema<productType>(
     description: { type: String, required: true },
     category: { type: String, required: true },
     price: { type: Number, required: true },
-    imageUrl: { type: String, required: true},
+    imageUrl: { type: String, required: true },
     color: { type: String, required: true },
     quantity: { type: Number, required: true },
     howtocare: { type: howToCareSchema, required: true },
+    isFeatured: { type: Boolean, required: true },
+    rating: { type: Number, enum: [1, 2, 3, 4, 5], required: true },
   },
   { versionKey: false }
 );
