@@ -48,7 +48,6 @@ const deleteProduct: RequestHandler = catchAsync(async (req, res) => {
 });
 
 const updateProduct: RequestHandler = catchAsync(async (req, res) => {
-  // console.log(req.body)
   const result = await productServices.updateProductInDB(
     req.params.id,
     req.body

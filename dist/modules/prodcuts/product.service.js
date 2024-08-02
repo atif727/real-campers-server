@@ -56,7 +56,7 @@ const createProductInDB = (product) => {
     return result;
 };
 const updateProductInDB = (id, product) => {
-    const result = product_model_1.productModel.findByIdAndUpdate({ id }, product, {
+    const result = product_model_1.productModel.findByIdAndUpdate(id, product, {
         new: true,
     });
     if (result === null || result === undefined) {

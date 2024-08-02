@@ -41,7 +41,7 @@ const createProductInDB = (product: productType) => {
   return result;
 };
 const updateProductInDB = (id: string, product: Partial<productType>) => {
-  const result = productModel.findByIdAndUpdate({ id }, product, {
+  const result = productModel.findByIdAndUpdate( id , product, {
     new: true,
   });
   if (result === null || result === undefined) {
