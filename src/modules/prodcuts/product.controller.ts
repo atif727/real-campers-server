@@ -21,7 +21,7 @@ const createProduct: RequestHandler = catchAsync(async (req, res) => {
   sendResponse(res, {
     success: true,
     statusCode: httpStatus.OK,
-    message: "Products shown successfully",
+    message: "Product created successfully",
     data: result,
   });
 });
