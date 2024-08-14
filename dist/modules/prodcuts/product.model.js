@@ -7,7 +7,7 @@ const howToCareSchema = new mongoose_1.Schema({
     description: { type: String, required: true },
 }, { _id: false, versionKey: false });
 exports.productSchema = new mongoose_1.Schema({
-    name: { type: String, required: true, trim: true, maxlength: 10 },
+    name: { type: String, required: true, trim: true },
     description: { type: String, required: true },
     category: { type: String, required: true },
     price: { type: Number, required: true },

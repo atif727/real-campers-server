@@ -26,3 +26,19 @@ const createCart : RequestHandler = catchAsync(async (req, res) => {
     });
   });
 
+  const updateCart : RequestHandler = catchAsync(async (req, res) => {
+    
+    const result = await cartServices.createCart(req.body);
+    sendResponse(res, {
+      success: true,
+      statusCode: httpStatus.OK,
+      message: "specific Product shown succesfully",
+      data: result,
+    });
+  });
+
+  export const cartController = {
+    updateCart,
+    createCart,
+    getCart
+  };

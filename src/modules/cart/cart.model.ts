@@ -1,11 +1,11 @@
 import { Schema, model } from "mongoose";
 
-export type cart = {
+export type cartType = {
   userId: string;
   prodIds: string[];
 };
 
-const cartSchema = new Schema<cart>(
+const cartSchema = new Schema<cartType>(
   {
     userId: { type: String, required: true },
     prodIds: { type: [String], default: [] },
@@ -13,4 +13,4 @@ const cartSchema = new Schema<cart>(
   { versionKey: false }
 );
 
-export const cartModel = model<cart>("cart", cartSchema);
+export const cartModel = model<cartType>("cart", cartSchema);

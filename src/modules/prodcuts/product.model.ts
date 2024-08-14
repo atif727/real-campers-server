@@ -11,7 +11,7 @@ const howToCareSchema = new Schema<HowToCare>(
 
 export const productSchema = new Schema<productType>(
   {
-    name: { type: String, required: true, trim: true, maxlength: 10 },
+    name: { type: String, required: true, trim: true },
     description: { type: String, required: true },
     category: { type: String, required: true },
     price: { type: Number, required: true },
