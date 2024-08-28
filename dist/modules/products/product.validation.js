@@ -29,23 +29,13 @@ exports.productValidation = zod_1.z.object({
         ]),
     }),
 });
-const howToCareValidationSchema = zod_1.z.object({
-    header: zod_1.z.string().min(1, "Header is required").optional(),
-    description: zod_1.z.string().min(1, "Description is required").optional(),
-});
 exports.productUpdateValidation = zod_1.z.object({
     body: zod_1.z.object({
-        name: zod_1.z
-            .string()
-            .trim()
-            .optional(),
+        name: zod_1.z.string().trim().optional(),
         description: zod_1.z.string().optional(),
         category: zod_1.z.string().min(1, "Category is required").optional(),
         price: zod_1.z.number().min(0, "Price must be a positive number").optional(),
-        quantity: zod_1.z
-            .number()
-            .min(0, "Quantity must be a positive number")
-            .optional(),
+        quantity: zod_1.z.number().min(0, "Quantity must be a positive number").optional(),
         howtocare: howToCareUpdateSchema.optional(),
         recommended: zod_1.z.boolean().optional(),
         isFeatured: zod_1.z.boolean().optional(),

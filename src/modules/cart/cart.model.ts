@@ -1,13 +1,13 @@
 import { Schema, model } from "mongoose";
 
 export type cartType = {
-  userId: string;
+  userEmail: string;
   prodIds: string[];
 };
 
 const cartSchema = new Schema<cartType>(
   {
-    userId: { type: String, required: true },
+    userEmail: { type: String, required: true },
     prodIds: { type: [String], default: [] },
   },
   { versionKey: false }

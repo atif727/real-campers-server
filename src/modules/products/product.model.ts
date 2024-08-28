@@ -1,16 +1,11 @@
 import { Schema, model } from "mongoose";
-import { HowToCare, productType } from "./product.interface";
 
-const howToCareSchema = new Schema<HowToCare>(
-  {
+const howToCareSchema = new Schema({
     header: { type: String, required: true },
     description: { type: String, required: true },
-  },
-  { _id: false, versionKey: false }
-);
+}, { _id: false, versionKey: false });
 
-export const productSchema = new Schema<productType>(
-  {
+export const productSchema = new Schema({
     name: { type: String, required: true, trim: true },
     description: { type: String, required: true },
     category: { type: String, required: true },
@@ -22,8 +17,6 @@ export const productSchema = new Schema<productType>(
     recommended: { type: Boolean, required: true },
     isFeatured: { type: Boolean, required: true },
     rating: { type: Number, enum: [1, 2, 3, 4, 5], required: true },
-  },
-  { versionKey: false }
-);
+}, { versionKey: false });
 
-export const productModel = model<productType>("Product", productSchema);
+export const productModel = model("Product", productSchema);

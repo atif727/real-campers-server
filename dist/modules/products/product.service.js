@@ -60,7 +60,7 @@ const updateProductInDB = (id, product) => {
         new: true,
     });
     if (result === null || result === undefined) {
-        throw new AppError_1.default(http_status_1.default.NOT_FOUND, 'No product Found');
+        throw new AppError_1.default(http_status_1.default.NOT_FOUND, "No product Found");
     }
     else {
         return result;

@@ -7,8 +7,8 @@ exports.cartServices = void 0;
 const http_status_1 = __importDefault(require("http-status"));
 const AppError_1 = __importDefault(require("../../errors/AppError"));
 const cart_model_1 = require("./cart.model");
-const getTheCart = (id) => {
-    const result = cart_model_1.cartModel.findById(id);
+const getTheCart = (userEmail) => {
+    const result = cart_model_1.cartModel.findOne({ userEmail: userEmail });
     if (result === null || undefined) {
         throw new AppError_1.default(http_status_1.default.NOT_FOUND, "No product Found");
     }
@@ -20,7 +20,19 @@ const createCart = (body) => {
     const result = cart_model_1.cartModel.create(body);
     return result;
 };
+const updateCart = (userEmail, payload) => {
+    const result = cart_model_1.cartModel.findOneAndUpdate({ userEmail: userEmail }, payload, {
+        new: true,
+    });
+    if (result === null || result === undefined) {
+        throw new AppError_1.default(http_status_1.default.NOT_FOUND, "No product Found");
+    }
+    else {
+        return result;
+    }
+};
 exports.cartServices = {
+    updateCart,
     getTheCart,
     createCart,
 };

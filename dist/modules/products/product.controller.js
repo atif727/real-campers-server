@@ -27,7 +27,6 @@ const getAllProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
     });
 }));
 const createProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    // console.log(req.body)
     const result = yield product_service_1.productServices.createProductInDB(req.body);
     (0, sendResponse_1.default)(res, {
         success: true,
@@ -42,7 +41,7 @@ const getProductByID = (0, catchAsync_1.default)((req, res) => __awaiter(void 0,
     (0, sendResponse_1.default)(res, {
         success: true,
         statusCode: http_status_1.default.OK,
-        message: "specific Product shown succesfully",
+        message: "Specific product shown successfully",
         data: result,
     });
 }));
@@ -52,7 +51,7 @@ const deleteProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
     (0, sendResponse_1.default)(res, {
         success: true,
         statusCode: http_status_1.default.OK,
-        message: "specific Product shown succesfully",
+        message: "Product deleted successfully",
         data: result,
     });
 }));
@@ -61,7 +60,7 @@ const updateProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
     (0, sendResponse_1.default)(res, {
         success: true,
         statusCode: http_status_1.default.OK,
-        message: "Products shown successfully",
+        message: "Product updated successfully",
         data: result,
     });
 }));

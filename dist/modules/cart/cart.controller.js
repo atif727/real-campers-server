@@ -18,8 +18,8 @@ const sendResponse_1 = __importDefault(require("../../utils/sendResponse"));
 const http_status_1 = __importDefault(require("http-status"));
 const cart_service_1 = require("./cart.service");
 const getCart = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { userId } = req.params;
-    const result = yield cart_service_1.cartServices.getTheCart(userId);
+    const { userEmail } = req.params;
+    const result = yield cart_service_1.cartServices.getTheCart(userEmail);
     (0, sendResponse_1.default)(res, {
         success: true,
         statusCode: http_status_1.default.OK,
@@ -37,7 +37,8 @@ const createCart = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
     });
 }));
 const updateCart = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield cart_service_1.cartServices.createCart(req.body);
+    const { userEmail } = req.params;
+    const result = yield cart_service_1.cartServices.updateCart(userEmail, req.body);
     (0, sendResponse_1.default)(res, {
         success: true,
         statusCode: http_status_1.default.OK,
@@ -48,5 +49,5 @@ const updateCart = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, voi
 exports.cartController = {
     updateCart,
     createCart,
-    getCart
+    getCart,
 };

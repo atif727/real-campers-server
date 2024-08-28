@@ -16,3 +16,5 @@ router.post(
   cartController.createCart
 );
 router.get("/cart/:userId", cartController.getCart);
+
+export const cartRoutes = router;
